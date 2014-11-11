@@ -10,11 +10,11 @@
 
 <%= yield %>
 <p>
-<a href="/pages/home">Home</a> | 
-<a href="/pages/register">Register</a> |
-<a href="/pages/download">Download</a> | 
-<a href="/pages/login">Login</a> | 
-<a href="/pages/about">About</a>
+<%= link_to "Home", root_path %> | 
+<%= link_to "Register", register_path %> | 
+<%= link_to "Download", download_path %> | 
+<%= link_to "Login", login_path %> | 
+<%= link_to "About", about_path %>
 </p>
 
 </body>
