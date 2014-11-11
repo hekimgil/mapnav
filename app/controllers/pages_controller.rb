@@ -3,10 +3,6 @@ class PagesController < ApplicationController
     @title = "Home"
   end
 
-  def register
-    @title = "Register"
-  end
-
   def download
     @title = "Download App"
   end
