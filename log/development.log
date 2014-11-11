@@ -6842,3 +6842,81 @@ Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-11-11 20:24:41 +0200
 
 
 Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-11-11 20:24:41 +0200
+
+
+Started GET "/users/7" for 127.0.0.1 at 2014-11-11 20:43:47 +0200
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 7]]
+  Rendered users/show.html.erb within layouts/application (12.3ms)
+Completed 200 OK in 169ms (Views: 129.8ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/assets/pages.css?body=1" for 127.0.0.1 at 2014-11-11 20:43:47 +0200
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-11-11 20:43:47 +0200
+
+
+Started GET "/assets/pages.js?body=1" for 127.0.0.1 at 2014-11-11 20:43:47 +0200
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-11-11 20:43:47 +0200
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-11-11 20:43:47 +0200
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-11-11 20:43:47 +0200
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-11-11 20:43:47 +0200
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-11-11 20:43:47 +0200
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-11-11 20:43:47 +0200
+
+
+Started GET "/users/7.json" for 127.0.0.1 at 2014-11-11 20:43:56 +0200
+Processing by UsersController#show as JSON
+  Parameters: {"id"=>"7"}
+  [1m[36mUser Load (4.2ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 7]]
+Completed 200 OK in 6ms (Views: 0.5ms | ActiveRecord: 4.2ms)
+
+
+Started GET "/users/7" for 127.0.0.1 at 2014-11-11 21:23:30 +0200
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[35mUser Load (2.7ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 7]]
+  Rendered users/show.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 86ms (Views: 82.3ms | ActiveRecord: 2.7ms)
+
+
+Started GET "/assets/pages.css?body=1" for 127.0.0.1 at 2014-11-11 21:23:30 +0200
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-11-11 21:23:30 +0200
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-11-11 21:23:30 +0200
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-11-11 21:23:30 +0200
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-11-11 21:23:30 +0200
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-11-11 21:23:30 +0200
+
+
+Started GET "/assets/pages.js?body=1" for 127.0.0.1 at 2014-11-11 21:23:30 +0200
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-11-11 21:23:30 +0200
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-11-11 21:23:30 +0200
