@@ -53,6 +53,7 @@ group :test do
   gem 'rspec', '>=3.1.0'
   gem 'webrat', '0.7.3'
   gem 'spork', '0.9.2'
+  gem 'factory_girl_rails', '4.5.0'
 end
 
 gem 'rails_12factor', group: :production

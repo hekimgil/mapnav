@@ -1,5 +1,30 @@
-<h1>Users#new</h1>
-<p>
+<h1>Register new user</h1>
+<%= form_for(@user) do |f| %>
+  <%= render 'shared/error_messages' %>
+  <div class="field">
+    <%= f.label "First Name" %><br />
+    <%= f.text_field :firstName %>
+  </div>
+  <div class="field">
+    <%= f.label "Last Name" %><br />
+    <%= f.text_field :lastName %>
+  </div>
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.text_field :email %>
+  </div>
+<!--  <div class="field">
+    <%= f.label :password %><br />
+    <%= f.password_field :password %>
+  </div>
+  <div class="field">
+    <%= f.label "Password confirmation" %><br />
+    <%= f.password_field :password_confirmation %>
+  </div>
+-->  <div class="actions">
+    <%= f.submit "Register" %>
+  </div>
+<% end %>
 
 Name
 
@@ -16,5 +41,4 @@ Birthday
 Gender
 
 Country
-</p>
 <img width="80%" height="80%" src="https://d30su0b7sry5gh.cloudfront.net/repo/scHsa1As/images/hjdsUezP.jpg" alt="Register"></image>
