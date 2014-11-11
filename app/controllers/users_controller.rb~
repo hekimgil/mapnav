@@ -4,7 +4,7 @@ class UsersController < ApplicationController
     @title = "Register"
   end
 
-  def shown
+  def show
     @user = User.find(params[:id])
     @title = @user.firstName + " " + @user.lastName
   end
@@ -14,7 +14,7 @@ class UsersController < ApplicationController
     if @user.save
       flash[:success] = "Your information is saved..."
 #      redirect_to @user
-      redirect_to :action => :show
+      redirect_to :action => 'show'
     else
       @title = "Register"
       render :new
