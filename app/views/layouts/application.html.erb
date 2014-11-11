@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>MapNav - <%= @title %></title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<%= yield %>
+<p>
+<a href="/pages/home">Home</a> | 
+<a href="/pages/register">Register</a> |
+<a href="/pages/download">Download</a> | 
+<a href="/pages/login">Login</a> | 
+<a href="/pages/about">About</a>
+</p>
+
+</body>
+</html>
