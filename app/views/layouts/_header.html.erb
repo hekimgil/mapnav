@@ -1,0 +1,20 @@
+<header>
+  <div class="container">
+    <p>
+      <%= link_to "Home", root_path %> |
+      
+      <% if logged_in? %>
+        <%= link_to "Users", '#' %> |
+        <%= link_to "Profile", current_user %> |
+        <%= link_to "Settings", '#' %> |
+        <%= link_to "Log out", logout_path, method: "delete" %>
+      <% else %>
+        <%= link_to "Register", register_path %> | 
+        <%= link_to "Log in", login_path %> |
+      <% end %>
+
+      <%= link_to "Download", download_path %> | 
+      <%= link_to "About", about_path %>
+    </p>
+  </div>
+</header>

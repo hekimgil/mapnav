@@ -4,8 +4,9 @@ class ApplicationController < ActionController::Base
 
   #filter_parameter_logging "password"
 
-  #protect_from_forgery with: :exception
-  protect_from_forgery
+  protect_from_forgery with: :exception
+  #protect_from_forgery
+  include SessionsHelper
   skip_before_action :verify_authencity_token, if: :json_request?
 
   protected

@@ -7,21 +7,24 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <%= render 'layouts/header' %>
+  <section class="round">
+    <% flash.each do |key, value| %>
+      <div class="flash" <%= key %>"><%= value %></div>
+    <% end %>
+    <%= yield %>
+    <%= render 'layouts/footer' %>
+  </section>
 
-<section class="round">
-  <% flash.each do |key, value| %>
-    <div class="flash" <%= key %>"><%= value %></div>
-  <% end %>
-  <%= yield %>
-</section>
-
-<p>
+  <p>
 <%= link_to "Home", root_path %> | 
 <%= link_to "Register", register_path %> | 
 <%= link_to "Download", download_path %> | 
 <%= link_to "Login", login_path %> | 
 <%= link_to "About", about_path %>
 </p>
+
+<%= debug(params) if Rails.env.development? %>
 
 </body>
 </html>
