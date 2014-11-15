@@ -31,6 +31,7 @@ GEM
       activerecord (>= 2.3.0)
       rake (>= 0.8.7)
     arel (5.0.1.20140414130214)
+    bcrypt (3.1.7)
     builder (3.2.2)
     capybara (2.2.0)
       mime-types (>= 1.16)
@@ -164,6 +165,7 @@ PLATFORMS
 
 DEPENDENCIES
   annotate (= 2.6.5)
+  bcrypt (= 3.1.7)
   capybara
   coffee-rails (~> 4.0.0)
   factory_girl_rails (= 4.5.0)

@@ -17,6 +17,11 @@ Current status:
 * initial database structure formed (work in progress)
 * json information exchange for communicating with the Android app (work in progress)
 
+Version history:
+
+* JSON communication with app added. (14/11)
+* basic user validation added. (14/11)
+
 Project started at the beginning of November 2014. Estimated time of completion is by the end of November 2014.
 
 Our Sprint 1 Review Report is available at <a href="https://github.com/IYTECENG316SoftwareEngineering/mapnav-agile-common" target="_blank">mapnav-agile-common GitHub repo</a>...

@@ -44,6 +44,8 @@ gem 'spring',        group: :development
 # Use capybara
 gem 'capybara'
 
+gem 'bcrypt', '3.1.7'
+
 group :development do
   gem 'rspec-rails', '>=3.1.0'
   gem 'annotate', '2.6.5'
