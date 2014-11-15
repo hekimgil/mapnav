@@ -2,12 +2,13 @@
 #
 # Table name: users
 #
-#  id         :integer          not null, primary key
-#  firstName  :string(255)
-#  lastName   :string(255)
-#  email      :string(255)
-#  created_at :datetime
-#  updated_at :datetime
+#  id              :integer          not null, primary key
+#  firstName       :string(255)
+#  lastName        :string(255)
+#  email           :string(255)
+#  created_at      :datetime
+#  updated_at      :datetime
+#  password_digest :string(255)
 #
 
 require 'rails_helper'

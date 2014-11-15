@@ -2,18 +2,18 @@
 #
 # Table name: users
 #
-#  id         :integer          not null, primary key
-#  firstName  :string(255)
-#  lastName   :string(255)
-#  email      :string(255)
-#  created_at :datetime
-#  updated_at :datetime
+#  id              :integer          not null, primary key
+#  firstName       :string(255)
+#  lastName        :string(255)
+#  email           :string(255)
+#  created_at      :datetime
+#  updated_at      :datetime
+#  password_digest :string(255)
 #
 
 class User < ActiveRecord::Base
-  attr_accessor :password
 
-  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
+  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i
 
   before_save { self.email = email.downcase }
   validates :firstName, presence: true, length: { maximum: 50 }

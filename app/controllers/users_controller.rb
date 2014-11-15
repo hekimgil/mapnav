@@ -25,9 +25,25 @@ class UsersController < ApplicationController
     end
   end
 
-  private
-  ## Strong Parameters
-  def user_params
-    params.require(:user).permit(:firstName, :lastName, :email)
+  def update
+    if @user.update_attributes(user_params)
+      flash[:success] = "Profile updated"
+      redirect_to @user
+    else
+      render 'edit'
+    end
   end
+
+  def destroy
+    User.find(params[:id]).destroy
+    flash[:success] = "User destroyed."
+    redirect_to users_url
+  end
+
+  private
+    ## Strong Parameters
+    def user_params
+      params.require(:user).permit(:firstName, :lastName, :email,
+                                   :password, :password_confirmation)
+    end
 end
