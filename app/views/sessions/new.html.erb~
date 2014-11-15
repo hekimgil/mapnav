@@ -1,4 +1,15 @@
 <h1>Sessions#new</h1>
-<p>Find me in app/views/sessions/new.html.erb</p>
+
+<%= form_for(:session, url: login_path) do |f| %>
+  <%= f.label :email %>
+  <%= f.text_field :email, class: 'form-control' %>
+
+  <%= f.label :password %>
+  <%= f.password_field :password, class: 'form-control' %>
+
+  <%= f.submit "Log in" %>
+<% end %>
+<p>If you are a new user, you can register <%= link_to "here", register_path %>...</p>
+
 <img width="80%" height="80%" src="https://d30su0b7sry5gh.cloudfront.net/repo/scHsa1As/images/hjdsUezP.jpg" alt="Log in">
 
