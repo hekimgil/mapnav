@@ -1,0 +1,40 @@
+<h1>Add new photo</h1>
+<%= form_for(@photo) do |f| %>
+  <%#= render 'shared/error_messages' %>
+  <div class="field">
+    <%= f.label "URL (web address of photo)" %><br />
+    <%= f.text_field :url, class: 'form-control' %>
+  </div>
+  <div class="field">
+    <%= f.label :thumbnail %><br />
+    <%= f.text_field :thumbnail, class: 'form-control' %>
+  </div>
+  <div class="field">
+    <%= f.label :bitmap %><br />
+    <%= f.text_field :bitmap, class: 'form-control' %>
+  </div>
+  <div class="field">
+    <%= f.label :title %><br />
+    <%= f.text_field :title, class: 'form-control' %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br />
+    <%= f.text_field :description, class: 'form-control' %>
+  </div>
+  <div class="field">
+    <%= f.label :ownerEvent %><br />
+    <%= f.text_field :ownerEvent, class: 'form-control' %>
+  </div>
+  <div class="field">
+    <%= f.label :createdDate %><br />
+    <%= f.text_field :createdDate, class: 'form-control' %>
+  </div>
+  <div class="actions">
+    <%= f.submit "Add Photo" %>
+  </div>
+<% end %>
+
+
+<%#= render 'form' %>
+
+<%#= link_to 'Back', photos_path %>

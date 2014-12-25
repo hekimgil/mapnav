@@ -2,6 +2,8 @@ Rails.application.routes.draw do
 #  get 'sessions/new'
 
   resources :users
+  resources :photos
+  resources :events
 
   get '/home',		:to => 'pages#home'
 #  get '/register',	:to => 'pages#register'
@@ -14,6 +16,9 @@ Rails.application.routes.draw do
   get 'login'		=> 'sessions#new'
   post 'login'		=> 'sessions#create'
   delete 'logout'	=> 'sessions#destroy'
+
+#  get '/photoadd',	:to => 'photos#new'
+
 
   root			:to => 'pages#home'
 

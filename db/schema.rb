@@ -49,4 +49,8 @@ ActiveRecord::Schema.define(version: 20141115152623) do
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
 
+  add_index "photos", ["url"], name: "index_photos_on_url", unique: true, using: :btree
+
+  add_index "events", ["eventId"], name: "index_events_on_eventId", unique: true, using: :btree
+
 end

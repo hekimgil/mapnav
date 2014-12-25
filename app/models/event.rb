@@ -13,4 +13,6 @@
 
 class Event < ActiveRecord::Base
   #attr_accessible :title, :description
+  has_many :photos, dependent: :destroy
+  belongs_to :user
 end

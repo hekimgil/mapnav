@@ -16,4 +16,5 @@
 
 class Photo < ActiveRecord::Base
   #attr_accessible :url, :thumbnail, :bitmap, :title, :description, :createdDate
+  belongs_to :event
 end

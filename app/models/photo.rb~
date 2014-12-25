@@ -15,5 +15,5 @@
 #
 
 class Photo < ActiveRecord::Base
-  attr_accessible :url, :thumbnail, :bitmap, :title, :description, :createdDate
+  #attr_accessible :url, :thumbnail, :bitmap, :title, :description, :createdDate
 end
