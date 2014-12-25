@@ -6,4 +6,23 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-User.create({firstName: 'Eden'}, { lastName: 'Hazard'}, {email: 'guest@mapnav.com'})
+user1 = User.create(firstName: 'Erman', lastName: 'Yafay', email: 'ermanyafay@mapnav.com')
+event11 = Event.create(ownerUser: user1[:id], createdDate: DateTime.now, title: "Erman'ın fotoları", description: "İYTE'den muhtelif fotoğraf manzaraları...", thumbnail: "http://assets-s3.usmagazine.com/uploads/assets/celebrities/238-brad-pitt/1250530894_brad_pitt_290x402.jpg", latitude: 38.3947403, longitude: 26.9997663)
+photo11 = Photo.create(ownerEvent: event11[:id], url: "http://i.imgur.com/XLLGCqW.jpg", thumbnail: "https://drive.google.com/file/d/0BwvugTdznRN8RHdYMExRRXRPSGc/view?usp=sharing", title: 'In the lab', description: 'Working on CENG316 project...', latitude: 38.3947403, longitude: 26.9997663, createdDate: DateTime.now)
+
+user2 = User.create(firstName: 'Eden', lastName: 'Hazard', email: 'edenhazard@mapnav.com')
+event21 = Event.create(ownerUser: user2[:id], createdDate: DateTime.now, title: "", description: "", thumbnail: "", latitude: 0, longitude: 0)
+event22 = Event.create(ownerUser: user2[:id])
+photo21 = Photo.create(ownerEvent: event21[:id])
+photo22 = Photo.create(ownerEvent: event22[:id])
+photo23 = Photo.create(ownerEvent: event21[:id])
+photo24 = Photo.create(ownerEvent: event22[:id])
+
+
+
+user3 = User.create(firstName: 'Acun', lastName: 'Ilıcalı', email: 'acunilicali@mapnav.com')
+
+
+
+
+

@@ -12334,3 +12334,352 @@ ActiveModel::ForbiddenAttributesError (ActiveModel::ForbiddenAttributesError):
   [1m[36mUser Exists (1.6ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('guest@mapnav.com') LIMIT 1[0m
   [1m[35mSQL (0.4ms)[0m  INSERT INTO "users" ("created_at", "email", "firstName", "lastName", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", "2014-12-22 09:55:02.355645"], ["email", "guest@mapnav.com"], ["firstName", "Eden"], ["lastName", "Hazard"], ["updated_at", "2014-12-22 09:55:02.355645"]]
   [1m[36m (21.3ms)[0m  [1mCOMMIT[0m
+  [1m[36m (648.0ms)[0m  [1mDROP DATABASE IF EXISTS "my_development_db"[0m
+  [1m[35m (323.6ms)[0m  DROP DATABASE IF EXISTS "my_test_db"
+  [1m[36m (3935.7ms)[0m  [1mCREATE DATABASE "my_development_db" ENCODING = 'utf8'[0m
+  [1m[35m (3990.4ms)[0m  CREATE DATABASE "my_test_db" ENCODING = 'utf8'
+  [1m[36m (420.6ms)[0m  [1mDROP DATABASE IF EXISTS "my_development_db"[0m
+  [1m[35m (348.2ms)[0m  DROP DATABASE IF EXISTS "my_test_db"
+  [1m[36m (3822.1ms)[0m  [1mCREATE DATABASE "my_development_db" ENCODING = 'utf8'[0m
+  [1m[35m (4457.6ms)[0m  CREATE DATABASE "my_test_db" ENCODING = 'utf8'
+  [1m[36m (320.6ms)[0m  [1mDROP DATABASE IF EXISTS "my_development_db"[0m
+  [1m[35m (336.0ms)[0m  DROP DATABASE IF EXISTS "my_test_db"
+  [1m[36m (3825.3ms)[0m  [1mCREATE DATABASE "my_development_db" ENCODING = 'utf8'[0m
+  [1m[35m (3946.6ms)[0m  CREATE DATABASE "my_test_db" ENCODING = 'utf8'
+  [1m[36mSQL (0.3ms)[0m  [1mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (183.6ms)[0m  CREATE TABLE "events" ("id" serial primary key, "eventId" integer, "createdDate" timestamp, "title" character varying(255), "description" text, "created_at" timestamp, "updated_at" timestamp) 
+  [1m[36m (165.9ms)[0m  [1mCREATE TABLE "photos" ("id" serial primary key, "url" character varying(255), "thumbnail" character varying(255), "bitmap" character varying(255), "title" character varying(255), "description" text, "latitude" decimal(9,6), "longitude" decimal(9,6), "ownerEvent" integer, "createdDate" timestamp, "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35m (165.9ms)[0m  CREATE TABLE "users" ("id" serial primary key, "firstName" character varying(255), "lastName" character varying(255), "email" character varying(255), "created_at" timestamp, "updated_at" timestamp, "password_digest" character varying(255), "remember_digest" character varying(255)) 
+  [1m[36m (99.1ms)[0m  [1mCREATE UNIQUE INDEX  "index_users_on_email" ON "users" USING btree ("email")[0m
+  [1m[35m (77.2ms)[0m  CREATE UNIQUE INDEX  "index_photos_on_url" ON "photos" USING btree ("url")
+  [1m[36m (77.8ms)[0m  [1mCREATE UNIQUE INDEX  "index_events_on_eventId" ON "events" USING btree ("eventId")[0m
+  [1m[35m (29.5ms)[0m  CREATE TABLE "schema_migrations" ("version" character varying(255) NOT NULL) 
+  [1m[36m (75.8ms)[0m  [1mCREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")[0m
+  [1m[35m (0.4ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36m (21.9ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20141115152623')[0m
+  [1m[35m (22.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20141114234932')
+  [1m[36m (33.1ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20141115085754')[0m
+  [1m[35m (21.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20141111103735')
+  [1m[36m (21.5ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20141111103858')[0m
+  [1m[35m (22.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20141111102839')
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (4.0ms)[0m  BEGIN
+  [1m[36mUser Exists (0.6ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('guest@mapnav.com') LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "users" ("created_at", "email", "firstName", "lastName", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", "2014-12-25 12:43:26.704993"], ["email", "guest@mapnav.com"], ["firstName", "Eden"], ["lastName", "Hazard"], ["updated_at", "2014-12-25 12:43:26.704993"]]
+  [1m[36m (32.6ms)[0m  [1mCOMMIT[0m
+  [1m[36m (371.1ms)[0m  [1mDROP DATABASE IF EXISTS "my_development_db"[0m
+  [1m[35m (336.1ms)[0m  DROP DATABASE IF EXISTS "my_test_db"
+  [1m[36m (3724.9ms)[0m  [1mCREATE DATABASE "my_development_db" ENCODING = 'utf8'[0m
+  [1m[35m (4145.1ms)[0m  CREATE DATABASE "my_test_db" ENCODING = 'utf8'
+  [1m[36mSQL (9.4ms)[0m  [1mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (143.7ms)[0m  CREATE TABLE "events" ("id" serial primary key, "eventId" integer, "createdDate" timestamp, "title" character varying(255), "description" text, "latitude" decimal(9,6), "longitude" decimal(9,6), "created_at" timestamp, "updated_at" timestamp) 
+  [1m[36m (142.7ms)[0m  [1mCREATE TABLE "photos" ("id" serial primary key, "url" character varying(255), "thumbnail" character varying(255), "bitmap" character varying(255), "title" character varying(255), "description" text, "latitude" decimal(9,6), "longitude" decimal(9,6), "ownerEvent" integer, "createdDate" timestamp, "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35m (143.7ms)[0m  CREATE TABLE "users" ("id" serial primary key, "firstName" character varying(255), "lastName" character varying(255), "email" character varying(255), "created_at" timestamp, "updated_at" timestamp, "password_digest" character varying(255), "remember_digest" character varying(255)) 
+  [1m[36m (87.6ms)[0m  [1mCREATE UNIQUE INDEX  "index_users_on_email" ON "users" USING btree ("email")[0m
+  [1m[35m (56.4ms)[0m  CREATE UNIQUE INDEX  "index_photos_on_url" ON "photos" USING btree ("url")
+  [1m[36m (89.1ms)[0m  [1mCREATE UNIQUE INDEX  "index_events_on_eventId" ON "events" USING btree ("eventId")[0m
+  [1m[35m (36.7ms)[0m  CREATE TABLE "schema_migrations" ("version" character varying(255) NOT NULL) 
+  [1m[36m (121.3ms)[0m  [1mCREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")[0m
+  [1m[35m (0.4ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36m (56.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20141115152623')[0m
+  [1m[35m (31.7ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20141114234932')
+  [1m[36m (22.6ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20141115085754')[0m
+  [1m[35m (21.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20141111103735')
+  [1m[36m (23.1ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20141111103858')[0m
+  [1m[35m (22.1ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20141111102839')
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUser Exists (0.6ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('ermanyafay@mapnav.com') LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("created_at", "email", "firstName", "lastName", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", "2014-12-25 12:49:34.763828"], ["email", "ermanyafay@mapnav.com"], ["firstName", "Erman"], ["lastName", "Yafay"], ["updated_at", "2014-12-25 12:49:34.763828"]]
+  [1m[36m (20.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('edenhazard@mapnav.com') LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "users" ("created_at", "email", "firstName", "lastName", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", "2014-12-25 12:49:34.788109"], ["email", "edenhazard@mapnav.com"], ["firstName", "Eden"], ["lastName", "Hazard"], ["updated_at", "2014-12-25 12:49:34.788109"]]
+  [1m[36m (20.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('acunilicali@mapnav.com') LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("created_at", "email", "firstName", "lastName", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", "2014-12-25 12:49:34.810470"], ["email", "acunilicali@mapnav.com"], ["firstName", "Acun"], ["lastName", "Ilıcalı"], ["updated_at", "2014-12-25 12:49:34.810470"]]
+  [1m[36m (19.5ms)[0m  [1mCOMMIT[0m
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Load (0.6ms)[0m  SELECT "users".* FROM "users"
+  [1m[36m (0.5ms)[0m  [1mROLLBACK[0m
+  [1m[36m (324.0ms)[0m  [1mDROP DATABASE IF EXISTS "my_development_db"[0m
+  [1m[35m (324.8ms)[0m  DROP DATABASE IF EXISTS "my_test_db"
+  [1m[36m (4013.5ms)[0m  [1mCREATE DATABASE "my_development_db" ENCODING = 'utf8'[0m
+  [1m[35m (4424.2ms)[0m  CREATE DATABASE "my_test_db" ENCODING = 'utf8'
+  [1m[36mSQL (0.3ms)[0m  [1mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (160.2ms)[0m  CREATE TABLE "events" ("id" serial primary key, "ownerUser" integer, "createdDate" timestamp, "title" character varying(255), "description" text, "latitude" decimal(9,6), "longitude" decimal(9,6), "created_at" timestamp, "updated_at" timestamp) 
+  [1m[36m (109.7ms)[0m  [1mCREATE TABLE "photos" ("id" serial primary key, "url" character varying(255), "thumbnail" character varying(255), "bitmap" character varying(255), "title" character varying(255), "description" text, "latitude" decimal(9,6), "longitude" decimal(9,6), "ownerEvent" integer, "createdDate" timestamp, "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35m (121.6ms)[0m  CREATE TABLE "users" ("id" serial primary key, "firstName" character varying(255), "lastName" character varying(255), "email" character varying(255), "created_at" timestamp, "updated_at" timestamp, "password_digest" character varying(255), "remember_digest" character varying(255)) 
+  [1m[36m (65.7ms)[0m  [1mCREATE UNIQUE INDEX  "index_users_on_email" ON "users" USING btree ("email")[0m
+  [1m[35m (55.2ms)[0m  CREATE  INDEX  "index_photos_on_ownerEvent" ON "photos" USING btree ("ownerEvent")
+  [1m[36m (77.8ms)[0m  [1mCREATE  INDEX  "index_events_on_ownerUser" ON "events" USING btree ("ownerUser")[0m
+  [1m[35m (12.4ms)[0m  CREATE TABLE "schema_migrations" ("version" character varying(255) NOT NULL) 
+  [1m[36m (98.9ms)[0m  [1mCREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")[0m
+  [1m[35m (0.4ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36m (9.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20141115152623')[0m
+  [1m[35m (23.8ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20141114234932')
+  [1m[36m (21.1ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20141115085754')[0m
+  [1m[35m (22.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20141111103735')
+  [1m[36m (33.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20141111103858')[0m
+  [1m[35m (22.2ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20141111102839')
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUser Exists (0.7ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('ermanyafay@mapnav.com') LIMIT 1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "users" ("created_at", "email", "firstName", "lastName", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", "2014-12-25 12:58:07.312354"], ["email", "ermanyafay@mapnav.com"], ["firstName", "Erman"], ["lastName", "Yafay"], ["updated_at", "2014-12-25 12:58:07.312354"]]
+  [1m[36m (2.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('edenhazard@mapnav.com') LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "users" ("created_at", "email", "firstName", "lastName", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", "2014-12-25 12:58:07.321257"], ["email", "edenhazard@mapnav.com"], ["firstName", "Eden"], ["lastName", "Hazard"], ["updated_at", "2014-12-25 12:58:07.321257"]]
+  [1m[36m (19.7ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('acunilicali@mapnav.com') LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("created_at", "email", "firstName", "lastName", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", "2014-12-25 12:58:07.343704"], ["email", "acunilicali@mapnav.com"], ["firstName", "Acun"], ["lastName", "Ilıcalı"], ["updated_at", "2014-12-25 12:58:07.343704"]]
+  [1m[36m (19.5ms)[0m  [1mCOMMIT[0m
+  [1m[36m (518.4ms)[0m  [1mDROP DATABASE IF EXISTS "my_development_db"[0m
+  [1m[35m (312.6ms)[0m  DROP DATABASE IF EXISTS "my_test_db"
+  [1m[36m (3912.1ms)[0m  [1mCREATE DATABASE "my_development_db" ENCODING = 'utf8'[0m
+  [1m[35m (3924.1ms)[0m  CREATE DATABASE "my_test_db" ENCODING = 'utf8'
+  [1m[36mSQL (0.2ms)[0m  [1mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (278.4ms)[0m  CREATE TABLE "events" ("id" serial primary key, "ownerUser" integer, "createdDate" timestamp, "title" character varying(255), "description" text, "thumbnail" character varying(255), "latitude" decimal(9,6), "longitude" decimal(9,6), "created_at" timestamp, "updated_at" timestamp) 
+  [1m[36m (131.7ms)[0m  [1mCREATE TABLE "photos" ("id" serial primary key, "url" character varying(255), "thumbnail" character varying(255), "bitmap" character varying(255), "title" character varying(255), "description" text, "latitude" decimal(9,6), "longitude" decimal(9,6), "ownerEvent" integer, "createdDate" timestamp, "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35m (142.5ms)[0m  CREATE TABLE "users" ("id" serial primary key, "firstName" character varying(255), "lastName" character varying(255), "email" character varying(255), "created_at" timestamp, "updated_at" timestamp, "password_digest" character varying(255), "remember_digest" character varying(255)) 
+  [1m[36m (88.5ms)[0m  [1mCREATE UNIQUE INDEX  "index_users_on_email" ON "users" USING btree ("email")[0m
+  [1m[35m (66.6ms)[0m  CREATE  INDEX  "index_photos_on_ownerEvent" ON "photos" USING btree ("ownerEvent")
+  [1m[36m (77.5ms)[0m  [1mCREATE  INDEX  "index_events_on_ownerUser" ON "events" USING btree ("ownerUser")[0m
+  [1m[35m (32.9ms)[0m  CREATE TABLE "schema_migrations" ("version" character varying(255) NOT NULL) 
+  [1m[36m (65.4ms)[0m  [1mCREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")[0m
+  [1m[35m (0.4ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36m (12.2ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20141115152623')[0m
+  [1m[35m (9.6ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20141114234932')
+  [1m[36m (22.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20141115085754')[0m
+  [1m[35m (21.7ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20141111103735')
+  [1m[36m (33.5ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20141111103858')[0m
+  [1m[35m (9.9ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20141111102839')
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (6.8ms)[0m  BEGIN
+  [1m[36mUser Exists (0.6ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('ermanyafay@mapnav.com') LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("created_at", "email", "firstName", "lastName", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", "2014-12-25 13:01:42.185312"], ["email", "ermanyafay@mapnav.com"], ["firstName", "Erman"], ["lastName", "Yafay"], ["updated_at", "2014-12-25 13:01:42.185312"]]
+  [1m[36m (20.9ms)[0m  [1mCOMMIT[0m
+  [1m[36m (431.8ms)[0m  [1mDROP DATABASE IF EXISTS "my_development_db"[0m
+  [1m[35m (335.5ms)[0m  DROP DATABASE IF EXISTS "my_test_db"
+  [1m[36m (4146.3ms)[0m  [1mCREATE DATABASE "my_development_db" ENCODING = 'utf8'[0m
+  [1m[35m (4312.0ms)[0m  CREATE DATABASE "my_test_db" ENCODING = 'utf8'
+  [1m[36mSQL (0.3ms)[0m  [1mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (167.7ms)[0m  CREATE TABLE "events" ("id" serial primary key, "ownerUser" integer, "createdDate" timestamp, "title" character varying(255), "description" text, "thumbnail" character varying(255), "latitude" decimal(9,6), "longitude" decimal(9,6), "created_at" timestamp, "updated_at" timestamp) 
+  [1m[36m (131.5ms)[0m  [1mCREATE TABLE "photos" ("id" serial primary key, "url" character varying(255), "thumbnail" character varying(255), "bitmap" character varying(255), "title" character varying(255), "description" text, "latitude" decimal(9,6), "longitude" decimal(9,6), "ownerEvent" integer, "createdDate" timestamp, "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35m (120.7ms)[0m  CREATE TABLE "users" ("id" serial primary key, "firstName" character varying(255), "lastName" character varying(255), "email" character varying(255), "created_at" timestamp, "updated_at" timestamp, "password_digest" character varying(255), "remember_digest" character varying(255)) 
+  [1m[36m (88.6ms)[0m  [1mCREATE UNIQUE INDEX  "index_users_on_email" ON "users" USING btree ("email")[0m
+  [1m[35m (165.4ms)[0m  CREATE  INDEX  "index_photos_on_ownerEvent" ON "photos" USING btree ("ownerEvent")
+  [1m[36m (88.9ms)[0m  [1mCREATE  INDEX  "index_events_on_ownerUser" ON "events" USING btree ("ownerUser")[0m
+  [1m[35m (13.6ms)[0m  CREATE TABLE "schema_migrations" ("version" character varying(255) NOT NULL) 
+  [1m[36m (102.8ms)[0m  [1mCREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")[0m
+  [1m[35m (0.4ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36m (21.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20141115152623')[0m
+  [1m[35m (22.1ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20141114234932')
+  [1m[36m (23.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20141115085754')[0m
+  [1m[35m (21.1ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20141111103735')
+  [1m[36m (22.6ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20141111103858')[0m
+  [1m[35m (22.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20141111102839')
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUser Exists (0.6ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('ermanyafay@mapnav.com') LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "users" ("created_at", "email", "firstName", "lastName", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", "2014-12-25 13:02:29.270324"], ["email", "ermanyafay@mapnav.com"], ["firstName", "Erman"], ["lastName", "Yafay"], ["updated_at", "2014-12-25 13:02:29.270324"]]
+  [1m[36m (29.9ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "events" ("created_at", "ownerUser", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", "2014-12-25 13:02:29.317439"], ["ownerUser", 1], ["updated_at", "2014-12-25 13:02:29.317439"]]
+  [1m[35m (17.8ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('edenhazard@mapnav.com') LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "users" ("created_at", "email", "firstName", "lastName", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", "2014-12-25 13:02:29.338993"], ["email", "edenhazard@mapnav.com"], ["firstName", "Eden"], ["lastName", "Hazard"], ["updated_at", "2014-12-25 13:02:29.338993"]]
+  [1m[35m (8.2ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('acunilicali@mapnav.com') LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("created_at", "email", "firstName", "lastName", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", "2014-12-25 13:02:29.350169"], ["email", "acunilicali@mapnav.com"], ["firstName", "Acun"], ["lastName", "Ilıcalı"], ["updated_at", "2014-12-25 13:02:29.350169"]]
+  [1m[35m (30.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Load (2.3ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mEvent Load (0.4ms)[0m  [1mSELECT "events".* FROM "events"[0m
+  [1m[35m (0.3ms)[0m  ROLLBACK
+  [1m[36m (319.1ms)[0m  [1mDROP DATABASE IF EXISTS "my_development_db"[0m
+  [1m[35m (323.2ms)[0m  DROP DATABASE IF EXISTS "my_test_db"
+  [1m[36m (3691.6ms)[0m  [1mCREATE DATABASE "my_development_db" ENCODING = 'utf8'[0m
+  [1m[35m (3913.2ms)[0m  CREATE DATABASE "my_test_db" ENCODING = 'utf8'
+  [1m[36mSQL (0.3ms)[0m  [1mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (164.3ms)[0m  CREATE TABLE "events" ("id" serial primary key, "ownerUser" integer, "createdDate" timestamp, "title" character varying(255), "description" text, "thumbnail" character varying(255), "latitude" decimal(9,6), "longitude" decimal(9,6), "created_at" timestamp, "updated_at" timestamp) 
+  [1m[36m (164.8ms)[0m  [1mCREATE TABLE "photos" ("id" serial primary key, "url" character varying(255), "thumbnail" character varying(255), "bitmap" character varying(255), "title" character varying(255), "description" text, "latitude" decimal(9,6), "longitude" decimal(9,6), "ownerEvent" integer, "createdDate" timestamp, "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35m (121.8ms)[0m  CREATE TABLE "users" ("id" serial primary key, "firstName" character varying(255), "lastName" character varying(255), "email" character varying(255), "created_at" timestamp, "updated_at" timestamp, "password_digest" character varying(255), "remember_digest" character varying(255)) 
+  [1m[36m (76.3ms)[0m  [1mCREATE UNIQUE INDEX  "index_users_on_email" ON "users" USING btree ("email")[0m
+  [1m[35m (77.8ms)[0m  CREATE  INDEX  "index_photos_on_ownerEvent" ON "photos" USING btree ("ownerEvent")
+  [1m[36m (66.1ms)[0m  [1mCREATE  INDEX  "index_events_on_ownerUser" ON "events" USING btree ("ownerUser")[0m
+  [1m[35m (11.7ms)[0m  CREATE TABLE "schema_migrations" ("version" character varying(255) NOT NULL) 
+  [1m[36m (85.2ms)[0m  [1mCREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")[0m
+  [1m[35m (0.3ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36m (21.1ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20141115152623')[0m
+  [1m[35m (22.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20141114234932')
+  [1m[36m (21.9ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20141115085754')[0m
+  [1m[35m (21.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20141111103735')
+  [1m[36m (32.9ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20141111103858')[0m
+  [1m[35m (11.1ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20141111102839')
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUser Exists (0.6ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('ermanyafay@mapnav.com') LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("created_at", "email", "firstName", "lastName", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", "2014-12-25 13:05:32.849128"], ["email", "ermanyafay@mapnav.com"], ["firstName", "Erman"], ["lastName", "Yafay"], ["updated_at", "2014-12-25 13:05:32.849128"]]
+  [1m[36m (8.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "events" ("created_at", "ownerUser", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", "2014-12-25 13:05:32.869491"], ["ownerUser", 1], ["updated_at", "2014-12-25 13:05:32.869491"]]
+  [1m[35m (12.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('edenhazard@mapnav.com') LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "users" ("created_at", "email", "firstName", "lastName", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", "2014-12-25 13:05:32.884410"], ["email", "edenhazard@mapnav.com"], ["firstName", "Eden"], ["lastName", "Hazard"], ["updated_at", "2014-12-25 13:05:32.884410"]]
+  [1m[35m (20.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "events" ("created_at", "ownerUser", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["created_at", "2014-12-25 13:05:32.906333"], ["ownerUser", 2], ["updated_at", "2014-12-25 13:05:32.906333"]]
+  [1m[36m (31.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "events" ("created_at", "ownerUser", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", "2014-12-25 13:05:32.938906"], ["ownerUser", 2], ["updated_at", "2014-12-25 13:05:32.938906"]]
+  [1m[35m (20.8ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "photos" ("created_at", "ownerEvent", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["created_at", "2014-12-25 13:05:32.967962"], ["ownerEvent", 2], ["updated_at", "2014-12-25 13:05:32.967962"]]
+  [1m[36m (25.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "photos" ("created_at", "ownerEvent", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", "2014-12-25 13:05:32.995055"], ["ownerEvent", 3], ["updated_at", "2014-12-25 13:05:32.995055"]]
+  [1m[35m (20.6ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "photos" ("created_at", "ownerEvent", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["created_at", "2014-12-25 13:05:33.017083"], ["ownerEvent", 2], ["updated_at", "2014-12-25 13:05:33.017083"]]
+  [1m[36m (20.9ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "photos" ("created_at", "ownerEvent", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", "2014-12-25 13:05:33.039367"], ["ownerEvent", 3], ["updated_at", "2014-12-25 13:05:33.039367"]]
+  [1m[35m (9.2ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('acunilicali@mapnav.com') LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "users" ("created_at", "email", "firstName", "lastName", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", "2014-12-25 13:05:33.050809"], ["email", "acunilicali@mapnav.com"], ["firstName", "Acun"], ["lastName", "Ilıcalı"], ["updated_at", "2014-12-25 13:05:33.050809"]]
+  [1m[35m (20.0ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Load (4.5ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mEvent Load (0.4ms)[0m  [1mSELECT "events".* FROM "events"[0m
+  [1m[35mPhoto Load (0.6ms)[0m  SELECT "photos".* FROM "photos"
+  [1m[36m (0.3ms)[0m  [1mROLLBACK[0m
+  [1m[36m (248.5ms)[0m  [1mDROP DATABASE IF EXISTS "my_development_db"[0m
+  [1m[35m (351.3ms)[0m  DROP DATABASE IF EXISTS "my_test_db"
+  [1m[36m (4203.1ms)[0m  [1mCREATE DATABASE "my_development_db" ENCODING = 'utf8'[0m
+  [1m[35m (3924.2ms)[0m  CREATE DATABASE "my_test_db" ENCODING = 'utf8'
+  [1m[36mSQL (0.2ms)[0m  [1mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (160.1ms)[0m  CREATE TABLE "events" ("id" serial primary key, "ownerUser" integer, "createdDate" timestamp, "title" character varying(255), "description" text, "thumbnail" character varying(255), "latitude" decimal(9,6), "longitude" decimal(9,6), "created_at" timestamp, "updated_at" timestamp) 
+  [1m[36m (109.9ms)[0m  [1mCREATE TABLE "photos" ("id" serial primary key, "url" character varying(255), "thumbnail" character varying(255), "bitmap" character varying(255), "title" character varying(255), "description" text, "latitude" decimal(9,6), "longitude" decimal(9,6), "ownerEvent" integer, "createdDate" timestamp, "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35m (153.9ms)[0m  CREATE TABLE "users" ("id" serial primary key, "firstName" character varying(255), "lastName" character varying(255), "email" character varying(255), "created_at" timestamp, "updated_at" timestamp, "password_digest" character varying(255), "remember_digest" character varying(255)) 
+  [1m[36m (78.1ms)[0m  [1mCREATE UNIQUE INDEX  "index_users_on_email" ON "users" USING btree ("email")[0m
+  [1m[35m (78.0ms)[0m  CREATE  INDEX  "index_photos_on_ownerEvent" ON "photos" USING btree ("ownerEvent")
+  [1m[36m (76.9ms)[0m  [1mCREATE  INDEX  "index_events_on_ownerUser" ON "events" USING btree ("ownerUser")[0m
+  [1m[35m (18.5ms)[0m  CREATE TABLE "schema_migrations" ("version" character varying(255) NOT NULL) 
+  [1m[36m (86.5ms)[0m  [1mCREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")[0m
+  [1m[35m (0.3ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36m (22.1ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20141115152623')[0m
+  [1m[35m (55.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20141114234932')
+  [1m[36m (22.1ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20141115085754')[0m
+  [1m[35m (10.9ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20141111103735')
+  [1m[36m (33.5ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20141111103858')[0m
+  [1m[35m (22.2ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20141111102839')
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUser Exists (0.5ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('ermanyafay@mapnav.com') LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "users" ("created_at", "email", "firstName", "lastName", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", "2014-12-25 22:03:39.552704"], ["email", "ermanyafay@mapnav.com"], ["firstName", "Erman"], ["lastName", "Yafay"], ["updated_at", "2014-12-25 22:03:39.552704"]]
+  [1m[36m (22.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "events" ("createdDate", "created_at", "description", "latitude", "longitude", "ownerUser", "thumbnail", "title", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["createdDate", "2014-12-25 22:03:39.606661"], ["created_at", "2014-12-25 22:03:39.612681"], ["description", "İYTE'den muhtelif fotoğraf manzaraları..."], ["latitude", "38.3947403"], ["longitude", "26.9997663"], ["ownerUser", 1], ["thumbnail", "http://assets-s3.usmagazine.com/uploads/assets/celebrities/238-brad-pitt/1250530894_brad_pitt_290x402.jpg"], ["title", "Erman'ın fotoları"], ["updated_at", "2014-12-25 22:03:39.612681"]]
+  [1m[35m (6.6ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "photos" ("createdDate", "created_at", "description", "latitude", "longitude", "ownerEvent", "thumbnail", "title", "updated_at", "url") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"  [["createdDate", "2014-12-25 22:03:39.636829"], ["created_at", "2014-12-25 22:03:39.643134"], ["description", "Working on CENG316 project..."], ["latitude", "38.3947403"], ["longitude", "26.9997663"], ["ownerEvent", 1], ["thumbnail", "https://drive.google.com/file/d/0BwvugTdznRN8RHdYMExRRXRPSGc/view?usp=sharing"], ["title", "In the lab"], ["updated_at", "2014-12-25 22:03:39.643134"], ["url", "http://i.imgur.com/XLLGCqW.jpg"]]
+  [1m[36m (9.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('edenhazard@mapnav.com') LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("created_at", "email", "firstName", "lastName", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", "2014-12-25 22:03:39.655094"], ["email", "edenhazard@mapnav.com"], ["firstName", "Eden"], ["lastName", "Hazard"], ["updated_at", "2014-12-25 22:03:39.655094"]]
+  [1m[36m (20.6ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "events" ("created_at", "ownerUser", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", "2014-12-25 22:03:39.677091"], ["ownerUser", 2], ["updated_at", "2014-12-25 22:03:39.677091"]]
+  [1m[35m (9.2ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "events" ("created_at", "ownerUser", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["created_at", "2014-12-25 22:03:39.687922"], ["ownerUser", 2], ["updated_at", "2014-12-25 22:03:39.687922"]]
+  [1m[36m (43.7ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "photos" ("created_at", "ownerEvent", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", "2014-12-25 22:03:39.733045"], ["ownerEvent", 2], ["updated_at", "2014-12-25 22:03:39.733045"]]
+  [1m[35m (8.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "photos" ("created_at", "ownerEvent", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["created_at", "2014-12-25 22:03:39.743608"], ["ownerEvent", 3], ["updated_at", "2014-12-25 22:03:39.743608"]]
+  [1m[36m (35.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "photos" ("created_at", "ownerEvent", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", "2014-12-25 22:03:39.780354"], ["ownerEvent", 2], ["updated_at", "2014-12-25 22:03:39.780354"]]
+  [1m[35m (17.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "photos" ("created_at", "ownerEvent", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["created_at", "2014-12-25 22:03:39.799080"], ["ownerEvent", 3], ["updated_at", "2014-12-25 22:03:39.799080"]]
+  [1m[36m (9.6ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('acunilicali@mapnav.com') LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "users" ("created_at", "email", "firstName", "lastName", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", "2014-12-25 22:03:39.810971"], ["email", "acunilicali@mapnav.com"], ["firstName", "Acun"], ["lastName", "Ilıcalı"], ["updated_at", "2014-12-25 22:03:39.810971"]]
+  [1m[36m (31.8ms)[0m  [1mCOMMIT[0m
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mEvent Load (0.4ms)[0m  [1mSELECT "events".* FROM "events"[0m
+  [1m[35mPhoto Load (0.5ms)[0m  SELECT "photos".* FROM "photos"
+  [1m[36mEvent Load (0.2ms)[0m  [1mSELECT  "events".* FROM "events"  WHERE "events"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.4ms)[0m  ROLLBACK
+  [1m[36m (323.0ms)[0m  [1mDROP DATABASE IF EXISTS "my_development_db"[0m
+  [1m[35m (325.2ms)[0m  DROP DATABASE IF EXISTS "my_test_db"
+  [1m[36m (3734.8ms)[0m  [1mCREATE DATABASE "my_development_db" ENCODING = 'utf8'[0m
+  [1m[35m (4179.8ms)[0m  CREATE DATABASE "my_test_db" ENCODING = 'utf8'
+  [1m[36mSQL (0.3ms)[0m  [1mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (271.6ms)[0m  CREATE TABLE "events" ("id" serial primary key, "ownerUser" integer, "createdDate" timestamp, "title" character varying(255), "description" text, "thumbnail" character varying(255), "latitude" decimal(10,7), "longitude" decimal(10,7), "created_at" timestamp, "updated_at" timestamp) 
+  [1m[36m (98.3ms)[0m  [1mCREATE TABLE "photos" ("id" serial primary key, "url" character varying(255), "thumbnail" character varying(255), "bitmap" character varying(255), "title" character varying(255), "description" text, "latitude" decimal(10,7), "longitude" decimal(10,7), "ownerEvent" integer, "createdDate" timestamp, "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35m (199.0ms)[0m  CREATE TABLE "users" ("id" serial primary key, "firstName" character varying(255), "lastName" character varying(255), "email" character varying(255), "created_at" timestamp, "updated_at" timestamp, "password_digest" character varying(255), "remember_digest" character varying(255)) 
+  [1m[36m (89.1ms)[0m  [1mCREATE UNIQUE INDEX  "index_users_on_email" ON "users" USING btree ("email")[0m
+  [1m[35m (66.3ms)[0m  CREATE  INDEX  "index_photos_on_ownerEvent" ON "photos" USING btree ("ownerEvent")
+  [1m[36m (77.1ms)[0m  [1mCREATE  INDEX  "index_events_on_ownerUser" ON "events" USING btree ("ownerUser")[0m
+  [1m[35m (26.0ms)[0m  CREATE TABLE "schema_migrations" ("version" character varying(255) NOT NULL) 
+  [1m[36m (66.1ms)[0m  [1mCREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")[0m
+  [1m[35m (0.4ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36m (32.9ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20141115152623')[0m
+  [1m[35m (65.7ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20141114234932')
+  [1m[36m (22.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20141115085754')[0m
+  [1m[35m (21.8ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20141111103735')
+  [1m[36m (22.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20141111103858')[0m
+  [1m[35m (21.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20141111102839')
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUser Exists (0.6ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('ermanyafay@mapnav.com') LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("created_at", "email", "firstName", "lastName", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", "2014-12-25 23:18:54.179147"], ["email", "ermanyafay@mapnav.com"], ["firstName", "Erman"], ["lastName", "Yafay"], ["updated_at", "2014-12-25 23:18:54.179147"]]
+  [1m[36m (34.0ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "events" ("createdDate", "created_at", "description", "latitude", "longitude", "ownerUser", "thumbnail", "title", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["createdDate", "2014-12-25 23:18:54.218930"], ["created_at", "2014-12-25 23:18:54.228271"], ["description", "İYTE'den muhtelif fotoğraf manzaraları..."], ["latitude", "38.3947403"], ["longitude", "26.9997663"], ["ownerUser", 1], ["thumbnail", "http://assets-s3.usmagazine.com/uploads/assets/celebrities/238-brad-pitt/1250530894_brad_pitt_290x402.jpg"], ["title", "Erman'ın fotoları"], ["updated_at", "2014-12-25 23:18:54.228271"]]
+  [1m[35m (18.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "photos" ("createdDate", "created_at", "description", "latitude", "longitude", "ownerEvent", "thumbnail", "title", "updated_at", "url") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"  [["createdDate", "2014-12-25 23:18:54.249761"], ["created_at", "2014-12-25 23:18:54.256728"], ["description", "Working on CENG316 project..."], ["latitude", "38.3947403"], ["longitude", "26.9997663"], ["ownerEvent", 1], ["thumbnail", "https://drive.google.com/file/d/0BwvugTdznRN8RHdYMExRRXRPSGc/view?usp=sharing"], ["title", "In the lab"], ["updated_at", "2014-12-25 23:18:54.256728"], ["url", "http://i.imgur.com/XLLGCqW.jpg"]]
+  [1m[36m (24.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('edenhazard@mapnav.com') LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "users" ("created_at", "email", "firstName", "lastName", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", "2014-12-25 23:18:54.283379"], ["email", "edenhazard@mapnav.com"], ["firstName", "Eden"], ["lastName", "Hazard"], ["updated_at", "2014-12-25 23:18:54.283379"]]
+  [1m[36m (20.6ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "events" ("createdDate", "created_at", "description", "latitude", "longitude", "ownerUser", "thumbnail", "title", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["createdDate", "2014-12-25 23:18:54.304862"], ["created_at", "2014-12-25 23:18:54.305613"], ["description", "Nationale team spelen bij Koning Boudewijnstadion"], ["latitude", "50.895956"], ["longitude", "4.334102"], ["ownerUser", 2], ["thumbnail", "http://photos.wikimapia.org/p/00/00/40/77/08_75.jpg"], ["title", "Koning Boudewijnstadion"], ["updated_at", "2014-12-25 23:18:54.305613"]]
+  [1m[35m (20.1ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "events" ("createdDate", "created_at", "description", "latitude", "longitude", "ownerUser", "thumbnail", "title", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"  [["createdDate", "2014-12-25 23:18:54.326647"], ["created_at", "2014-12-25 23:18:54.327271"], ["description", "This is where I play for Chelsea FC"], ["latitude", "51.48167"], ["longitude", "-0.19111"], ["ownerUser", 2], ["thumbnail", "http://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/Stamford_Bridge_-_West_Stand.jpg/120px-Stamford_Bridge_-_West_Stand.jpg"], ["title", "Stamford Bridge"], ["updated_at", "2014-12-25 23:18:54.327271"]]
+  [1m[36m (20.9ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "photos" ("createdDate", "created_at", "description", "latitude", "longitude", "ownerEvent", "thumbnail", "title", "updated_at", "url") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["createdDate", "2014-12-25 23:18:54.349307"], ["created_at", "2014-12-25 23:18:54.349654"], ["description", "België wint met 3-1 van IJsland"], ["latitude", "50.895956"], ["longitude", "4.334102"], ["ownerEvent", 2], ["thumbnail", "http://www.belgianfootball.be/nl/sites/default/files/imagecache/carrousel_content/beliceitp.jpg"], ["title", "België wint!!!"], ["updated_at", "2014-12-25 23:18:54.349654"], ["url", "http://www.belgianfootball.be/nl/sites/default/files/imagecache/carrousel_content/beliceitp.jpg"]]
+  [1m[35m (31.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "photos" ("createdDate", "created_at", "description", "latitude", "longitude", "ownerEvent", "thumbnail", "title", "updated_at", "url") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"  [["createdDate", "2014-12-25 23:18:54.382172"], ["created_at", "2014-12-25 23:18:54.382786"], ["description", "I like scoring..."], ["latitude", "51.48167"], ["longitude", "-0.19111"], ["ownerEvent", 3], ["thumbnail", "http://i.telegraph.co.uk/multimedia/archive/02788/eden-hazard_2788463b.jpg"], ["title", "And he scores!!!"], ["updated_at", "2014-12-25 23:18:54.382786"], ["url", "http://i.telegraph.co.uk/multimedia/archive/02788/eden-hazard_2788463b.jpg"]]
+  [1m[36m (20.0ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "photos" ("createdDate", "created_at", "description", "latitude", "longitude", "ownerEvent", "thumbnail", "title", "updated_at", "url") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["createdDate", "2014-12-25 23:18:54.403765"], ["created_at", "2014-12-25 23:18:54.404314"], ["description", "Nationale team"], ["latitude", "50.895956"], ["longitude", "4.334102"], ["ownerEvent", 2], ["thumbnail", "http://r.ldh.be/image/ca/51b73737e4b0de6db975d8ca.jpg"], ["title", "Eden"], ["updated_at", "2014-12-25 23:18:54.404314"], ["url", "http://r.ldh.be/image/ca/51b73737e4b0de6db975d8ca.jpg"]]
+  [1m[35m (21.2ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "photos" ("createdDate", "created_at", "description", "latitude", "longitude", "ownerEvent", "thumbnail", "title", "updated_at", "url") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"  [["createdDate", "2014-12-25 23:18:54.426576"], ["created_at", "2014-12-25 23:18:54.427192"], ["description", "Nice goal against Swansea..."], ["latitude", "51.48167"], ["longitude", "-0.19111"], ["ownerEvent", 3], ["thumbnail", "http://i.telegraph.co.uk/multimedia/archive/02775/eden-hazard-epa_2775295b.jpg"], ["title", "Good shot!"], ["updated_at", "2014-12-25 23:18:54.427192"], ["url", "http://i.telegraph.co.uk/multimedia/archive/02775/eden-hazard-epa_2775295b.jpg"]]
+  [1m[36m (20.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUser Exists (0.9ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('acunilicali@mapnav.com') LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "users" ("created_at", "email", "firstName", "lastName", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", "2014-12-25 23:18:54.450287"], ["email", "acunilicali@mapnav.com"], ["firstName", "Acun"], ["lastName", "Ilıcalı"], ["updated_at", "2014-12-25 23:18:54.450287"]]
+  [1m[36m (20.5ms)[0m  [1mCOMMIT[0m
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mPhoto Load (6.2ms)[0m  SELECT "photos".* FROM "photos"
+  [1m[36m (0.4ms)[0m  [1mROLLBACK[0m
