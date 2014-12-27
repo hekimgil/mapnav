@@ -13,8 +13,8 @@ class EventsController < ApplicationController
     id = params[:id]
     @photos = Photo.where(:ownerEvent => id)
     @event = Event.find(id)
-    @user = @event.ownerUser
-    @title = @user["firstName"] + " " + @user.lastName + " event: " + @event.title
+    @user = User.find(@event.ownerUser)
+    @title = @user.firstName + " " + @user.lastName + " event: " + @event.title
     respond_to do |format|
       format.html
       format.json {render json: {"error" => false, "message" => "",
@@ -68,6 +68,18 @@ class EventsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to events_url, notice: 'Event was successfully destroyed.' }
       format.json { head :no_content }
+    end
+  end
+
+  def user
+    @id = params[:id]
+    @user = User.find(@id)
+    @events = Event.where(:ownerUser => @id)
+    @title = @user.firstName + " " + @user.lastName + " event: " + @event.title
+    respond_to do |format|
+      format.html
+      format.json {render json: {"error" => false, "message" => "",
+	"events" => @events} }
     end
   end
 

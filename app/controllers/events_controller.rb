@@ -71,6 +71,18 @@ class EventsController < ApplicationController
     end
   end
 
+  def user
+    @id = params[:id]
+    @user = User.find(@id)
+    @events = Event.where(:ownerUser => @id)
+    @title = @user.firstName + " " + @user.lastName + " events"
+    respond_to do |format|
+      format.html
+      format.json {render json: {"error" => false, "message" => "",
+	"events" => @events} }
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_event

@@ -13,6 +13,8 @@ Rails.application.routes.draw do
 
   get '/register',	:to => 'users#new'
 
+  get '/events/user/:id',	:to => 'events#user'
+
   get 'login'		=> 'sessions#new'
   post 'login'		=> 'sessions#create'
   delete 'logout'	=> 'sessions#destroy'

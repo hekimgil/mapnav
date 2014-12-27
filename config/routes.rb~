@@ -13,9 +13,14 @@ Rails.application.routes.draw do
 
   get '/register',	:to => 'users#new'
 
+  get 'userevents',	:to => 'events#user'
+
   get 'login'		=> 'sessions#new'
   post 'login'		=> 'sessions#create'
   delete 'logout'	=> 'sessions#destroy'
+
+#  get '/photoadd',	:to => 'photos#new'
+
 
   root			:to => 'pages#home'
 

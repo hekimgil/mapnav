@@ -1,0 +1,26 @@
+<p id="notice"><%= notice %></p>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="6" align="left">Events of <%= @user.firstName %> <%= @user.lastName %>:</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% i = 1 %>
+    <% @events.each do |event| %>
+    <tr>
+      <td><%= i %></td>
+      <td><img src="<%= event[:thumbnail] %>" alt="<%= event[:title] %>" height="50" width="50"></td>
+      <td><%= event[:title] %></td>
+      <td><%= event[:description] %></td>
+      <td><%= event[:latitude] %>, <%= event[:longitude] %></td>
+      <td><%= event[:createdDate] %></td>
+    </tr>
+    <% i += 1 %>
+    <% end %>
+  </tbody>
+</table>
+
+

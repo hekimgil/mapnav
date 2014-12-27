@@ -8,7 +8,6 @@
   </thead>
 
   <tbody>
-    <% Event.all %>
     <% @events.each do |event| %>
     <% u = User.find(event[:ownerUser]) %>
       <tr>

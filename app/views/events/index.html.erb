@@ -3,7 +3,7 @@
 <table>
   <thead>
     <tr>
-      <th colspan="3"></th>
+      <th colspan="2">Events list:</th>
     </tr>
   </thead>
 
@@ -13,7 +13,7 @@
       <tr>
         <td><%= event[:id] %></td>
         <td><%= u.firstName + " " + u.lastName %></td>
-        <td><%= event[:title] %></td>
+        <td></td><td><%= event[:title] %></td>
         <td><%= link_to 'Show', event %></td>
         <td><%= link_to 'Edit', edit_event_path(event) %></td>
 #        <td><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
