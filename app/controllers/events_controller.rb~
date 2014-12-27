@@ -13,8 +13,8 @@ class EventsController < ApplicationController
     id = params[:id]
     @photos = Photo.where(:ownerEvent => id)
     @event = Event.find(id)
-    @user = User.find(@event.ownerUser)
-    @title = @user.firstName + " " + @user.lastName + " event: " + @event.title
+    @user = @event.ownerUser
+    @title = @user["firstName"] + " " + @user.lastName + " event: " + @event.title
     respond_to do |format|
       format.html
       format.json {render json: {"error" => false, "message" => "",

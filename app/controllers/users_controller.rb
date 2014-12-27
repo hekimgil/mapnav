@@ -17,7 +17,12 @@ class UsersController < ApplicationController
     @title = @user.firstName + " " + @user.lastName
     respond_to do |format|
       format.html
-      format.json {render json: @user }
+#      format.json {render json: @user }
+      format.json {render json: {"error" => false, "message" => "",
+	"id" => @user.id,
+	"firstName" => @user.firstName,
+	"lastName" => @user.id,
+	"email" => @user.lastName} }
     end
   end
 

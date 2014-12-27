@@ -1,10 +1,5 @@
 <p id="notice"><%= notice %></p>
 
-<% id = params[:id] %>
-<% p = Photo.find(id) %>
-<% e = Event.find(p[:ownerEvent]) %>
-<% u = User.find(e[:ownerUser]) %>
-
 <table>
   <thead>
     <tr>
@@ -13,17 +8,16 @@
   </thead>
 
   <tbody>
-    <tr><td>Photo: </td><td> (<%= id %>)</td></tr>
-    <tr><td>Owner: </td><td> <%= u.firstName + " " + u.lastName %></td></tr>
-    <tr><td>Event: </td><td> <%= e[:title] %></td></tr>
-    <tr><td>Title: </td><td> <%= p[:title] %></td></tr>
-    <tr><td>Description: </td><td> <%= p[:description] %></td></tr>
-    <tr><td>Location: </td><td> <%= p[:latitude] %>, <%= p[:longitude] %></td></tr>
-    <tr><td>Photo URL: </td><td> <%= p[:url] %></td></tr>
-    <tr><td></td><td><img src="<%= p[:url] %>" alt="p[:title]" height="400" width="400"></td></tr>
+    <tr><td>Photo: </td><td> (<%= @id %>)</td></tr>
+    <tr><td>Owner: </td><td> <%= @u.firstName + " " + @u.lastName %></td></tr>
+    <tr><td>Event: </td><td> <%= @e[:title] %></td></tr>
+    <tr><td>Title: </td><td> <%= @p[:title] %></td></tr>
+    <tr><td>Description: </td><td> <%= @p[:description] %></td></tr>
+    <tr><td>Location: </td><td> <%= @p[:latitude] %>, <%= @p[:longitude] %></td></tr>
+    <tr><td>Photo URL: </td><td> <%= @p[:url] %></td></tr>
+    <tr><td></td><td><img src="<%= @p[:url] %>" alt="<%= @p[:title] %>" height="400" width="400"></td></tr>
   </tbody>
 </table>
 
-<%= link_to 'Edit', edit_photo_path(@photo) %> |
 <%= link_to 'Edit', edit_photo_path(@photo) %> |
 <%= link_to 'Back', photos_path %>

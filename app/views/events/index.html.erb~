@@ -8,15 +8,16 @@
   </thead>
 
   <tbody>
+    <% Event.all %>
     <% @events.each do |event| %>
     <% u = User.find(event[:ownerUser]) %>
       <tr>
         <td><%= event[:id] %></td>
-        <td><%= u.firstName + " " + u.lastName + " - " %></td>
+        <td><%= u.firstName + " " + u.lastName %></td>
         <td><%= event[:title] %></td>
         <td><%= link_to 'Show', event %></td>
         <td><%= link_to 'Edit', edit_event_path(event) %></td>
-        <td><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+#        <td><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

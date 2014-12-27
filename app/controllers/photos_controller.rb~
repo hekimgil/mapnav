@@ -13,7 +13,7 @@ class PhotosController < ApplicationController
     @id = params[:id]
     @p = Photo.find(@id)
     @e = Event.find(@p.ownerEvent)
-    @u = User.find(@e.ownerUser)
+    @u = User.find(e[:ownerUser])
     @title = @e.title + " photo: " + @p.title
     respond_to do |format|
       format.html

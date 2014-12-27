@@ -33,9 +33,9 @@
     <% @photos.each do |photo| %>
       <tr>
         <td><%= id %></td>
-        <td><img src="<%= photo[:thumbnail] %>" alt="photo[:title]" height="50" width="50"></td>
         <td><%= photo[:title] %></td>
         <td><%= photo[:createdDate] %></td>
+        <td><img src="<%= photo[:thumbnail] %>" alt="photo[:title]" height="50" width="50"></td>
         <td><%= link_to 'Show', photo %></td>
         <td><%= link_to 'Edit', edit_photo_path(photo) %></td>
 #        <td><%= link_to 'Destroy', photo, method: :delete, data: { confirm: 'Are you sure?' } %></td>
