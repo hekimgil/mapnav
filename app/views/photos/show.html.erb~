@@ -20,7 +20,7 @@
     <tr><td>Description: </td><td> <%= p[:description] %></td></tr>
     <tr><td>Location: </td><td> <%= p[:latitude] %>, <%= p[:longitude] %></td></tr>
     <tr><td>Photo URL: </td><td> <%= p[:url] %></td></tr>
-    <tr><td></td><td><img src="<%= p[:url] %>" alt="p[:title]" height="400" width="400"></td></tr>
+    <tr><td></td><td><img src="<%= p[:url] %>" alt="p[:title]" height="100" width="100"></td></tr>
   </tbody>
 </table>
 

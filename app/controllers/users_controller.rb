@@ -1,9 +1,10 @@
 class UsersController < ApplicationController
-  before_action :logged_in_user, only: [:edit, :update, :index, :show]
-  before_action :correct_user, only: [:edit, :update, :show]
+#  before_action :logged_in_user, only: [:edit, :update, :index, :show]
+#  before_action :correct_user, only: [:edit, :update, :show]
 
   def index
-    redirect_to root_url
+    @users = User.all
+#    redirect_to root_url
   end
 
   def new

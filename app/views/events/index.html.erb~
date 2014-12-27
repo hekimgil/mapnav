@@ -12,7 +12,7 @@
     <% u = User.find(event[:ownerUser]) %>
       <tr>
         <td><%= event[:id] %></td>
-        <td><%= u.firstName + " " + u.lastName %></td>
+        <td><%= u.firstName + " " + u.lastName + " - " %></td>
         <td><%= event[:title] %></td>
         <td><%= link_to 'Show', event %></td>
         <td><%= link_to 'Edit', edit_event_path(event) %></td>
