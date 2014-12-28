@@ -40,7 +40,8 @@ class PhotosController < ApplicationController
                          longitude: photo_params[:longitude])
     @photo = Photo.new(photo_params)
     @photo.event_id = event.id
-    event.title! = "My event #" + @photo.id.to_s
+    event.title = "My event #" + @photo.id.to_s
+    event.save
 
     respond_to do |format|
       if @photo.save
