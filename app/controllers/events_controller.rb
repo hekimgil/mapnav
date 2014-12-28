@@ -11,10 +11,10 @@ class EventsController < ApplicationController
   # GET /events/1.json
   def show
     id = params[:id]
-    @photos = Photo.where(:ownerEvent => id)
+    @photos = Photo.where(:event_id => id)
     @event = Event.find(id)
-    @user = User.find(@event.ownerUser)
-    @title = @user.firstName + " " + @user.lastName + " event: " + @event.title
+    @user = User.find(@event.user_id)
+    @title = @user.firstName + " " + @user.lastName + " event: " + @event.title.to_s
     respond_to do |format|
       format.html
       format.json {render json: {"error" => false, "message" => "",
@@ -74,7 +74,7 @@ class EventsController < ApplicationController
   def user
     @id = params[:id]
     @user = User.find(@id)
-    @events = Event.where(:ownerUser => @id)
+    @events = Event.where(:user_id => @id)
     @title = @user.firstName + " " + @user.lastName + " events"
     respond_to do |format|
       format.html

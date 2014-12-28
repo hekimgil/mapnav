@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 20141115152623) do
 
   create_table "events", force: true do |t|
 #    t.integer  "eventId"
-    t.integer  "ownerUser"
+    t.integer  "user_id"
     t.datetime "createdDate"
     t.string   "title"
     t.text     "description"
@@ -37,7 +37,7 @@ ActiveRecord::Schema.define(version: 20141115152623) do
     t.text     "description"
     t.decimal  "latitude",	:precision => 10, :scale => 7
     t.decimal  "longitude",	:precision => 10, :scale => 7
-    t.integer  "ownerEvent"
+    t.integer  "event_id"
     t.datetime "createdDate"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -55,8 +55,8 @@ ActiveRecord::Schema.define(version: 20141115152623) do
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
 
-  add_index "photos", ["ownerEvent"], name: "index_photos_on_ownerEvent", unique: false, using: :btree
+  add_index "photos", ["event_id"], name: "index_photos_on_event_id", unique: false, using: :btree
 
-  add_index "events", ["ownerUser"], name: "index_events_on_ownerUser", unique: false, using: :btree
+  add_index "events", ["user_id"], name: "index_events_on_user_id", unique: false, using: :btree
 
 end

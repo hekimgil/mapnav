@@ -22,11 +22,19 @@
     <%= f.text_field :description, class: 'form-control' %>
   </div>
   <div class="field">
+    <%= f.label :latitude %><br />
+    <%= f.text_field :latitude, class: 'form-control' %>
+  </div>
+  <div class="field">
+    <%= f.label :longitude %><br />
+    <%= f.text_field :longitude, class: 'form-control' %>
+  </div>
+  <div class="field">
     <%= f.label :ownerEvent %><br />
     <%= f.text_field :ownerEvent, class: 'form-control' %>
   </div>
   <div class="field">
-    <%= f.label :createdDate %><br />
+    <%= f.label "Date (as dd/mm/yyyy)" %><br />
     <%= f.text_field :createdDate, class: 'form-control' %>
   </div>
   <div class="actions">

@@ -2,7 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.photo-view {
-  max-width: 400px;
-  max-height: 400px;
+.photo-thumb {
+  max-width: 50px;
+  max-height: 50px;
 }

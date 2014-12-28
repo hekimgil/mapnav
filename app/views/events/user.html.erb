@@ -9,7 +9,7 @@
 
   <tbody>
     <% i = 1 %>
-    <% @events.each do |event| %>
+    <% @events.order(:createdDate).each do |event| %>
     <tr>
       <td><%= i %></td>
       <td><img src="<%= event[:thumbnail] %>" alt="<%= event[:title] %>" height="50" width="50"></td>

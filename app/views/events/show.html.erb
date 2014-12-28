@@ -2,7 +2,7 @@
 
 <% id = params[:id] %>
 <% e = Event.find(id) %>
-<% u = User.find(e[:ownerUser]) %>
+<% u = User.find(e[:user_id]) %>
 
 <table>
   <thead>
@@ -12,15 +12,15 @@
   </thead>
 
   <tbody>
-    <tr><td></td></tr>
+    <tr><td></td><td><img src="<%= e[:thumbnail] %>" alt="<%= e[:title] %>" class="event-view"></td></tr>
     <tr><td>Owner: </td><td> <%= u.firstName + " " + u.lastName %></td></tr>
     <tr><td>Title: </td><td> <%= e[:title] %></td></tr>
     <tr><td>Description: </td><td> <%= e[:description] %></td></tr>
     <tr><td>Location: </td><td> <%= e[:latitude] %>, <%= e[:longitude] %></td></tr>
     <tr><td>Date: </td><td> <%= e[:createdDate] %></td></tr>
-    <tr><td></td><td><img src="<%= e[:thumbnail] %>" alt="<%= e[:title] %>" height="200" width="200"></td></tr>
   </tbody>
 </table>
+
 <table>
   <thead>
     <tr>
@@ -29,16 +29,18 @@
   </thead>
 
   <tbody>
-    <% @photos.each do |photo| %>
+    <% i = 1 %>
+    <% @photos.order(:createdDate).each do |photo| %>
       <tr>
-        <td><%= id %></td>
-        <td><img src="<%= photo[:thumbnail] %>" alt="photo[:title]" height="50" width="50"></td>
+        <td><%= i %></td>
+        <td><img src="<%= photo[:thumbnail] %>" alt="<%= photo[:title] %>" class="event-thumb"></td>
         <td><%= photo[:title] %></td>
         <td><%= photo[:createdDate] %></td>
         <td><%= link_to 'Show', photo %></td>
         <td><%= link_to 'Edit', edit_photo_path(photo) %></td>
 #        <td><%= link_to 'Destroy', photo, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
+    <% i += 1 %>
     <% end %>
   </tbody>
 </table>

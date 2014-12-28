@@ -8,15 +8,17 @@
   </thead>
 
   <tbody>
+    <% i = 1 %>
     <% @events.each do |event| %>
     <tr>
-      <td><%= event[:id] %></td>
+      <td><%= i %></td>
       <td><img src="<%= event[:thumbnail] %>" alt="<%= event[:title] %>" height="50" width="50"></td>
       <td><%= event[:title] %></td>
       <td><%= event[:description] %></td>
       <td><%= event[:latitude] %>, <%= event[:longitude] %></td>
       <td><%= event[:createdDate] %></td>
     </tr>
+    <% i += 1 %>
     <% end %>
   </tbody>
 </table>
