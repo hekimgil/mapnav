@@ -13,6 +13,7 @@
     <% u = User.find(event[:user_id]) %>
       <tr>
         <td><%= i %></td>
+      <td><img src="<%= event[:thumbnail] %>" alt="<%= event[:title] %>" class="event-thumb"></td>
         <td><%= u.firstName + " " + u.lastName %></td>
         <td><%= event[:title] %></td>
         <td><%= link_to 'Show', event %></td>

@@ -38,12 +38,16 @@ class PhotosController < ApplicationController
                          title: "My event", description: "My event...",
                          latitude: photo_params[:latitude],
                          longitude: photo_params[:longitude])
+    if photo_params[:thumbnail] == nil then photo_params[:thumbnail] = photo_params[:url] end
     @photo = Photo.new(photo_params)
     @photo.event_id = event.id
-    event.title! = "My event #" + @photo.id.to_s
+    savestatus = @photo.save
 
     respond_to do |format|
-      if @photo.save
+      if savestatus
+        event.title = "My event #" + Event.where(:user_id => event.user_id).count.to_s
+        if event.thumbnail == nil then even.thumbnail = @photo.thumbnail end
+        event.save
         format.html { redirect_to @photo, notice: 'Photo was successfully created.' }
         format.json { render :show, status: :created, location: @photo }
       else

@@ -10,7 +10,7 @@
   <tbody>
     <% i = 1 %>
     <% @events.each do |event| %>
-    <% u = User.find(event[:ownerUser]) %>
+    <% u = User.find(event[:user_id]) %>
       <tr>
         <td><%= i %></td>
         <td><%= u.firstName + " " + u.lastName %></td>
