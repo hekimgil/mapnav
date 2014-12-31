@@ -7,7 +7,7 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 user1 = User.create(firstName: 'Erman', lastName: 'Yafay', email: 'ermanyafay@mapnav.com')
-event11 = Event.create(user_id: user1[:id], createdDate: DateTime.now, title: "Erman'ın fotoları", description: "İYTE'den muhtelif fotoğraf manzaraları...", thumbnail: "http://assets-s3.usmagazine.com/uploads/assets/celebrities/238-brad-pitt/1250530894_brad_pitt_290x402.jpg", latitude: 38.3947403, longitude: 26.9997663)
+event11 = Event.create(user_id: user1[:id], createdDate: DateTime.now, title: "Erman'ın fotoları", description: "İYTE'den muhtelif fotoğraf manzaraları...", thumbnail: "https://fbcdn-profile-a.akamaihd.net/hprofile-ak-xpa1/v/t1.0-1/p100x100/10351308_10152773981334820_3926783273922908996_n.jpg?oh=b771b2ef51032a521089e559b59b170e&oe=5534549E&__gda__=1425853711_beb4abe6fc9aceb6fefc294d73b319ed", latitude: 38.3947403, longitude: 26.9997663)
 photo11 = Photo.create(event_id: event11[:id], url: "http://i.imgur.com/XLLGCqW.jpg", thumbnail: "https://drive.google.com/file/d/0BwvugTdznRN8RHdYMExRRXRPSGc/view?usp=sharing", title: 'In the lab', description: 'Working on CENG316 project...', latitude: 38.3947403, longitude: 26.9997663, createdDate: DateTime.now)
 
 user2 = User.create(firstName: 'Eden', lastName: 'Hazard', email: 'edenhazard@mapnav.com')

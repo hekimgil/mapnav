@@ -5,6 +5,10 @@ class PhotosController < ApplicationController
   # GET /photos.json
   def index
     @photos = Photo.all
+    respond_to do |format|
+      format.html
+      format.json {render json: {"error" => false, "message" => "",
+	"photos" => @photos} }
   end
 
   # GET /photos/1

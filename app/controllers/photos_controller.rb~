@@ -48,14 +48,14 @@ class PhotosController < ApplicationController
         distance_event = d
       end
     end
-#    if (closest_event != -1) and (distance_event <= 500) then
+    if (closest_event != -1) and (distance_event <= 500) then
       event = Event.find(closest_event)
-#    else
-#      event = Event.create(user_id: userid, createdDate: DateTime.now,
-#                           title: uname + "'s event", description: uname + "'s event...",
-#                           latitude: photo_params[:latitude],
-#                           longitude: photo_params[:longitude])
-#    end
+    else
+      event = Event.create(user_id: userid, createdDate: DateTime.now,
+                           title: uname + "'s event", description: uname + "'s event...",
+                           latitude: photo_params[:latitude],
+                           longitude: photo_params[:longitude])
+    end
     @photo = Photo.new(photo_params)
     @photo.event_id = event.id
     if photo_params[:thumbnail] == nil then @photo[:thumbnail] = photo_params[:url] end

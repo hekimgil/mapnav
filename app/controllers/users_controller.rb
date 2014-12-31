@@ -5,6 +5,10 @@ class UsersController < ApplicationController
   def index
     @users = User.all
 #    redirect_to root_url
+    respond_to do |format|
+      format.html
+      format.json {render json: {"error" => false, "message" => "",
+	"users" => @users} }
   end
 
   def new
