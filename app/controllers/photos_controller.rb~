@@ -34,19 +34,37 @@ class PhotosController < ApplicationController
   # POST /photos
   # POST /photos.json
   def create
-    event = Event.create(user_id: 3, createdDate: DateTime.now,
-                         title: "My event", description: "My event...",
-                         latitude: photo_params[:latitude],
-                         longitude: photo_params[:longitude])
-    if photo_params[:thumbnail] == nil then photo_params[:thumbnail] = photo_params[:url] end
+    userid = 1
+    u = User.find(userid)
+    uname = u.firstName
+    closest_event = -1
+    distance_event = 0
+    plat = BigDecimal(photo_params[:latitude])
+    plon = BigDecimal(photo_params[:longitude])
+    Event.where(:user_id => userid).each do |event|
+      d = distance(plat, plon, event.latitude, event.longitude)
+      if (closest_event == -1) or (d < distance_event) then
+        closest_event = event.id
+        distance_event = d
+      end
+    end
+#    if (closest_event != -1) and (distance_event <= 500) then
+      event = Event.find(closest_event)
+#    else
+#      event = Event.create(user_id: userid, createdDate: DateTime.now,
+#                           title: uname + "'s event", description: uname + "'s event...",
+#                           latitude: photo_params[:latitude],
+#                           longitude: photo_params[:longitude])
+#    end
     @photo = Photo.new(photo_params)
     @photo.event_id = event.id
+    if photo_params[:thumbnail] == nil then @photo[:thumbnail] = photo_params[:url] end
     savestatus = @photo.save
 
     respond_to do |format|
       if savestatus
-        event.title = "My event #" + Event.where(:user_id => event.user_id).count.to_s
-        if event.thumbnail == nil then even.thumbnail = @photo.thumbnail end
+        event.title = uname + "'s event #" + Event.where(:user_id => event.user_id).count.to_s
+        if event.thumbnail == nil then event.thumbnail = @photo.thumbnail end
         event.save
         format.html { redirect_to @photo, notice: 'Photo was successfully created.' }
         format.json { render :show, status: :created, location: @photo }

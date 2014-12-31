@@ -9,10 +9,11 @@
 
   <tbody>
     <% @photos.each do |photo| %>
-    <% e = Event.find(photo[:ownerEvent]) %>
-    <% u = User.find(e[:ownerUser]) %>
+    <% e = Event.find(photo[:event_id]) %>
+    <% u = User.find(e[:user_id]) %>
       <tr>
         <td><%= photo[:id] %></td>
+        <td><img src="<%= photo[:thumbnail] %>" alt="<%= photo[:title] %>" class="photo-thumb"></td>
         <td><%= u.firstName + " " + u.lastName %></td>
         <td><%= e[:title] %></td>
         <td><%= photo[:title] %></td>

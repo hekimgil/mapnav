@@ -14,6 +14,7 @@
     <tr><td>Title: </td><td> <%= @p[:title] %></td></tr>
     <tr><td>Description: </td><td> <%= @p[:description] %></td></tr>
     <tr><td>Location: </td><td> <%= @p[:latitude] %>, <%= @p[:longitude] %></td></tr>
+    <tr><td>Taken at: </td><td> <%= @p[:createdDate] %></td></tr>
     <tr><td>Photo URL: </td><td> <%= @p[:url] %></td></tr>
     <tr><td></td><td><img src="<%= @p[:url] %>" alt="<%= @p[:title] %>" class="photo-view"></td></tr>
   </tbody>
