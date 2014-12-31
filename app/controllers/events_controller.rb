@@ -9,6 +9,7 @@ class EventsController < ApplicationController
       format.html
       format.json {render json: {"error" => false, "message" => "",
 	"events" => @events} }
+    end
   end
 
   # GET /events/1

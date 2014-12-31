@@ -9,6 +9,7 @@ class UsersController < ApplicationController
       format.html
       format.json {render json: {"error" => false, "message" => "",
 	"users" => @users} }
+    end
   end
 
   def new

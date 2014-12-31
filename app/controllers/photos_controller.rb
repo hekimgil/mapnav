@@ -9,6 +9,7 @@ class PhotosController < ApplicationController
       format.html
       format.json {render json: {"error" => false, "message" => "",
 	"photos" => @photos} }
+    end
   end
 
   # GET /photos/1
@@ -60,8 +61,13 @@ class PhotosController < ApplicationController
                            latitude: photo_params[:latitude],
                            longitude: photo_params[:longitude])
     end
-    @photo = Photo.new(photo_params)
+#    @photo = Photo.new(photo_params)
     @photo.event_id = event.id
+    @photo.title = photo_params[:title]
+    @photo.description = photo_params[:description]
+    @photo.latitude = photo_params[:latitude]
+    @photo.longitude = photo_params[:longitude]
+    @photo.createdDate = photo_params[:createdDate]
     if photo_params[:thumbnail] == nil then @photo[:thumbnail] = photo_params[:url] end
     savestatus = @photo.save
 
