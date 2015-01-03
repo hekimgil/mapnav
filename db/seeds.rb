@@ -7,8 +7,8 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 user1 = User.create(firstName: 'Erman', lastName: 'Yafay', email: 'ermanyafay@mapnav.com')
-event11 = Event.create(user_id: user1[:id], createdDate: DateTime.now, title: "Erman'ın fotoları", description: "İYTE'den muhtelif fotoğraf manzaraları...", thumbnail: "https://fbcdn-profile-a.akamaihd.net/hprofile-ak-xpa1/v/t1.0-1/p100x100/10351308_10152773981334820_3926783273922908996_n.jpg?oh=b771b2ef51032a521089e559b59b170e&oe=5534549E&__gda__=1425853711_beb4abe6fc9aceb6fefc294d73b319ed", latitude: 38.3947403, longitude: 26.9997663)
-photo11 = Photo.create(event_id: event11[:id], url: "http://i.imgur.com/XLLGCqW.jpg", thumbnail: "https://lh6.googleusercontent.com/1pYJMjGZV8FQxTMe0tlfx1JLtbdYlI-GMigLNChl2DPqHHUyCvP9JlwUvW2j-GdgW26Xw7kb2Ds=w940-h791", title: 'In the lab', description: 'Working on CENG316 project...', latitude: 38.3947403, longitude: 26.9997663, createdDate: DateTime.now)
+event11 = Event.create(user_id: user1[:id], createdDate: DateTime.now, title: "Erman'ın fotoları", description: "İYTE'den muhtelif fotoğraf manzaraları...", thumbnail: "http://i.imgur.com/l4Qynrn.jpg", latitude: 38.3947403, longitude: 26.9997663)
+photo11 = Photo.create(event_id: event11[:id], url: "http://i.imgur.com/XLLGCqW.jpg", thumbnail: "http://i.imgur.com/1Di26mA.jpg", title: 'In the lab', description: 'Working on CENG316 project...', latitude: 38.3947403, longitude: 26.9997663, createdDate: DateTime.now)
 
 user2 = User.create(firstName: 'Eden', lastName: 'Hazard', email: 'edenhazard@mapnav.com')
 event21 = Event.create(user_id: user2[:id], createdDate: DateTime.now, title: "Koning Boudewijnstadion", description: "Nationale team spelen bij Koning Boudewijnstadion", thumbnail: "http://photos.wikimapia.org/p/00/00/40/77/08_75.jpg", latitude: 50.895956, longitude: 4.334102)

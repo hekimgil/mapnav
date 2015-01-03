@@ -1,6 +1,6 @@
 <h1>Add new photo</h1>
 <%= form_for(@photo) do |f| %>
-  <%#= render 'shared/error_messages' %>
+  <%= render 'shared/error_messages' %>
   <div class="field">
     <%= f.label "URL (web address of photo)" %><br />
     <%= f.text_field :url, class: 'form-control' %>
@@ -28,10 +28,6 @@
   <div class="field">
     <%= f.label :longitude %><br />
     <%= f.text_field :longitude, class: 'form-control' %>
-  </div>
-  <div class="field">
-    <%= f.label :ownerEvent %><br />
-    <%= f.text_field :ownerEvent, class: 'form-control' %>
   </div>
   <div class="field">
     <%= f.label "Date (as dd/mm/yyyy)" %><br />

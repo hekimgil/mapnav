@@ -15,4 +15,8 @@ class Event < ActiveRecord::Base
   #attr_accessible :title, :description
   has_many :photos, dependent: :destroy
   belongs_to :user
+
+  validates :latitude, presence: true, numericality: { less_than_or_equal_to: 90, greater_than_or_equal_to: -90 }
+  validates :longitude, presence: true, numericality: { less_than_or_equal_to: 180, greater_than_or_equal_to: -180 }
+
 end
